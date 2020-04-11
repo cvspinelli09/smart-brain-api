@@ -16,7 +16,7 @@ const db = knex({
     port: "4000",
     user: "cristian",
     password: "",
-    database: "smart-brain",
+    database: "smart-brain1"
   },
 });
 
@@ -24,8 +24,8 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.get("/", (req, res) => res.send(database.users));
 
+app.get("/", (req, res) => res.send(database.users));
 app.post("/signin", signin.handleSignin(db, bcrypt));
 app.post("/register", register.handleRegister(db, bcrypt));
 app.get("/profile/:id", profile.handleProfileGet(db));
