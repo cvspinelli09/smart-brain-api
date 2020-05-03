@@ -16,7 +16,6 @@ const db = knex({
     host: "127.0.0.1",
     port: "4000",
     user: "cristian",
-    password: "",
     database: "smart-brain1"
   },
 });
@@ -27,13 +26,13 @@ app.use(cors());
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => res.send("IT'S WORKING!"));
+app.get("/", (req, res) => res.send("Face Detect! App by Spinelli Web Creations, is working!"));
 app.post("/signin", signin.handleSignin(db, bcrypt));
 app.post("/register", register.handleRegister(db, bcrypt));
 app.get("/profile/:id", profile.handleProfileGet(db));
 app.put("/image", image.handleImage(db));
 app.post("/imageurl", image.handleAPICall(db));
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`App listening on port ${process.env.PORT}`);
+app.listen(3000, () => {
+    console.log(`App listening on port 3000`);
 });
